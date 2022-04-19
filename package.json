@@ -1,0 +1,12 @@
+{
+  "name": "Reagent",
+  "version": "0.0.1",
+  "description": "Graphics pipelines with Web GPU",
+  "main": "index.js",
+  "repository": "https://github.com/MerfAvenger/Reagent",
+  "author": "connor.barthelmie <connor.barthelmie@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0"
+  }
+}
