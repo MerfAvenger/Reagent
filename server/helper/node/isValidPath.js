@@ -1,24 +1,42 @@
-const fs = require('fs');
+const fs = require("fs");
+const splitPath = require("./splitPath")
 
-const PAGES_DIRECTORY = "pages";
+const PAGES_DIRECTORY = "./pages/";
+const JS_DIRECTORY = "./public/";
 
-const isValidPath = (path) => {
-    let isValid = false;
-
-    const pathComponents = path.split('/');
-    console.log(pathComponents);
-    if(!pathComponents || pathComponents.length < 3) {
-        console.warn(`Path ${path} was not valid format.`);
+const isValidPath = (pathString) => {
+    if(!pathString) {
+        console.warn(`Path ${pathString} was invalid.`);
         return false;
     }
 
-    if(pathComponents[1] === PAGES_DIRECTORY) {
-        console.log(`Path ${path} lead to pages directory. Finding ${pathComponents[2]}`);
-        const files = fs.readdirSync(PAGES_DIRECTORY);
-        isValid = files.indexOf(pathComponents[2]) !== -1;
-        isValid && console.log(`Found ${pathComponents[2]}`);
-    }
+    let isValid = false;
+    const {dirname, filename} = splitPath(pathString);
 
+    switch(dirname) {
+        case PAGES_DIRECTORY: 
+            console.log(`Path <${pathString}> lead to pages directory. Finding ${filename}`);
+            isValid = checkPagesDirectory(filename);
+            return isValid;
+        case JS_DIRECTORY:
+            console.log(`Path <${pathString}> lead to the javascript directory. Finding ${filename}`);
+            isValid = checkJavascriptDirectory(filename);
+            return isValid;
+        default:
+            console.log(`Path <${pathString}> did not lead to a known directory.`);
+            return isValid;
+    }
+}
+
+const checkPagesDirectory = (filename) => {
+    const files = fs.readdirSync(PAGES_DIRECTORY);
+    const isValid = files.indexOf(filename) !== -1;
+    return isValid;
+}
+
+const checkJavascriptDirectory = (filename) => {
+    const files = fs.readdirSync(JS_DIRECTORY);
+    const isValid = files.indexOf(filename) !== -1;
     return isValid;
 }
 

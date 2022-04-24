@@ -3,6 +3,8 @@ import { GPUBufferManager } from "./graphics/GpuBuffer/GPUBufferManager";
 import Log from "./lib/Log";
 
 const init = async () => {
+    Log('Initialising Reagent framework.');
+
     const adaptor = await getWebAdaptor();
     if(!adaptor) {
         console.error(`No WebGPU adaptor available`);
@@ -21,7 +23,7 @@ const init = async () => {
         true
     );
     Log("Created GPU Buffer: ", gpuBufferManager.getBuffer("gpuWriteBuffer"));
-    
+
     const arrayBuffer = gpuBufferManager.getBuffer("gpuWriteBuffer").getMappedRange();
     new Uint8Array(arrayBuffer).set([0, 1, 2, 3]);
 

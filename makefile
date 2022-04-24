@@ -1,4 +1,5 @@
 start:
+	cp dist/* ./server/public/
 	cd ./server 	&& \
 	node app.js
 

@@ -353,3 +353,5 @@ MigrationBackup/
 
 compiled/
 dist/
+server/public/reagent.js
+server/public/reagent.js.map

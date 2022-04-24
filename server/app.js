@@ -11,7 +11,9 @@ config.port     = process.env.PORT;
 config.hostname = process.env.HOSTNAME;
 
 const server = http.createServer((req, res) => {
-    const url = req.url !== "/" ? req.url : "/pages/index.html";
+    const url = 
+        "." +
+        (req.url !== "/" ? req.url : "/pages/index.html");
     console.log(`Request for resource at: ${url}`);
 
     utils.serve(url, res);    
