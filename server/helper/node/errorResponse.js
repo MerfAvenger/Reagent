@@ -1,5 +1,5 @@
 const errorResponse = (message, res) => {
-    console.warn();
+    console.warn(message);
     res.statusCode = 404;
     res.end(message);
 }
