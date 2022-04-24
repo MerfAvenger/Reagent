@@ -2,7 +2,7 @@
   "name": "reagent",
   "version": "0.0.1",
   "description": "Graphics pipelines with Web GPU",
-  "main": "reagent.js",
+  "main": "./typed/reagent.js",
   "repository": "https://github.com/MerfAvenger/Reagent",
   "author": "connor.barthelmie <connor.barthelmie@gmail.com>",
   "license": "MIT",
@@ -10,10 +10,12 @@
     "dotenv": "^16.0.0"
   },
   "devDependencies": {
+    "@types/node": "^17.0.25",
     "@webgpu/types": "^0.1.14",
     "source-map-loader": "^3.0.1",
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",
+    "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2"
   }
 }

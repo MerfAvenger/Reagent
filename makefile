@@ -1,5 +1,5 @@
-start: build
-	cd test 		&& \
+start:
+	cd ./server 	&& \
 	node app.js
 
 build: typescript-build webpack-build

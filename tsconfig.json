@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
-      "outDir": "./typed",
+      "outDir": "./compiled",
       "allowJs": true,
       "target": "es6",
       "typeRoots": ["./node_modules/@webgpu/types", "./node_modules/@types"],
-      "module": "commonjs"
+      "module": "commonjs",
+      "lib": ["dom", "ES6"]
     },
     "include": ["./source/*"]
   }

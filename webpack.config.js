@@ -2,7 +2,6 @@ const path = require('path');
 
 module.exports = {
     entry: './source/reagent.ts',
-    types: ["@webgpu/types"],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'reagent.js'
@@ -13,8 +12,11 @@ module.exports = {
     },
     module: {
         rules: [
-            {test: /\.ts?$/, loader: "ts-loader"},
-            {test: /\.js?$/, loader: "source-map-loader"}
+            {
+                test: /\.ts?$/,
+                use: "ts-loader",
+                exclude: /node_modules/
+            }
         ]
     },
 }
